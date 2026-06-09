@@ -6,10 +6,10 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_AUTOMOC ON)
 
-# 🔴 FIX: Added "Widgets" to the required components
-find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
+# 🌐 FIXED: Added Gui and Network components to the required dependencies
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets Network)
 
-# 🔴 FIX: Added mainwindow.h and mainwindow.cpp to the build
+# 🛠️ FIXED: Synchronized missing header targets alongside implementation profiles
 add_executable(EduCloudOSCore
     main.cpp
     desktop.h
@@ -27,16 +27,24 @@ add_executable(EduCloudOSCore
     memorymanager.cpp   
     bankers.h           
     bankers.cpp  
+    taskmanagerapp.h
     taskmanagerapp.cpp
+    filesystemapp.h
     filesystemapp.cpp   
     calculatorapp.h
     calculatorapp.cpp
     snakegameapp.h
     snakegameapp.cpp 
-    browserapp.cpp
     browserapp.h  
+    browserapp.cpp
     contextmenumanager.h
     contextmenumanager.cpp  
 )
-# 🔴 FIX: Linked the Widgets library
-target_link_libraries(EduCloudOSCore PRIVATE Qt6::Core Qt6::Widgets)
+
+# 🌐 FIXED: Linked all necessary target runtime execution pipeline libraries
+target_link_libraries(EduCloudOSCore PRIVATE 
+    Qt6::Core 
+    Qt6::Gui 
+    Qt6::Widgets 
+    Qt6::Network
+)

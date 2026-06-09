@@ -2,32 +2,36 @@
 #define FILESYSTEMAPP_H
 
 #include <QWidget>
-#include <QTreeWidget>
+#include <QListWidget>
+#include <QLineEdit>
 #include <QTextEdit>
+#include <QComboBox>
 #include <QPushButton>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
 #include <QMap>
 
 class FileSystemApp : public QWidget {
     Q_OBJECT
-
 public:
-    explicit FileSystemApp(QWidget *parent = nullptr);
+    // Constructor accepts a reference to the desktop's permanent map allocation
+    explicit FileSystemApp(QMap<QString, QString> *masterStorage, QWidget *parent = nullptr);
 
 private slots:
-    void createNewFile();
-    void loadFileContent(QTreeWidgetItem *item, int column);
-    void saveFileContent();
+    void saveFile();
+    void loadFile(QListWidgetItem *item);
+    void deleteFile();
 
 private:
-    QTreeWidget *fileTree;
-    QTextEdit *textEditor;
-    QPushButton *newFileBtn;
-    QPushButton *saveBtn;
+    QMap<QString, QString> *m_storage; // Link pointer to master filesystem array
     
-    int fileCounter;
-    QMap<QString, QString> virtualHardDrive; // Maps Filename -> File Content
+    QListWidget *fileList;
+    QLineEdit *fileNameInput;
+    QComboBox *fileTypeDropdown; // Dynamic formatting dropdown selector
+    QTextEdit *fileContentInput;
+    
+    QPushButton *saveBtn;
+    QPushButton *deleteBtn;
+
+    void refreshFileList();
 };
 
 #endif // FILESYSTEMAPP_H

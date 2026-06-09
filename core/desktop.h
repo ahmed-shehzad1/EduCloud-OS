@@ -17,7 +17,9 @@ class Desktop : public QMainWindow {
 public:
     Desktop(QWidget *parent = nullptr);
     ~Desktop();
-
+public:
+    // Global File Allocation Table (Survives window closing actions)
+    QMap<QString, QString> masterFileSystem;
     void refreshSystem();
 
 private slots:

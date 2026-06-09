@@ -2,28 +2,25 @@
 #define BROWSERAPP_H
 
 #include <QWidget>
-#include <QLineEdit>
-#include <QPushButton>
-#include <QTextBrowser>
+#include <QProcess>
 
 class BrowserApp : public QWidget {
     Q_OBJECT
 public:
     explicit BrowserApp(QWidget *parent = nullptr);
+    ~BrowserApp();
+
+protected:
+    void resizeEvent(QResizeEvent *event) override;
+    void showEvent(QShowEvent *event) override;
 
 private slots:
-    void navigateToUrl();
-    void goHome();
+    void embedLiveEngine();
 
 private:
-    QLineEdit *urlBar;
-    QPushButton *backBtn;
-    QPushButton *forwardBtn;
-    QPushButton *refreshBtn;
-    QPushButton *homeBtn;
-    QTextBrowser *webView;
-
-    void loadMockPage(const QString &url);
+    QProcess *m_process;
+    QWidget *m_containerWidget;
+    unsigned long long m_targetHwnd; // Holds the native Win32 HWND handle safely
 };
 
 #endif // BROWSERAPP_H

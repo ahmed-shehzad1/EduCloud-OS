@@ -175,6 +175,12 @@ void Desktop::launchSchedulerApp() {
     QMdiSubWindow *window = workspace->addSubWindow(app);
     window->setWindowTitle("EduCloud - Task Orchestrator");
     window->resize(1000, 700);
+    
+    // --- PERFECT CENTERING LOGIC ---
+    int x = (workspace->width() - window->width()) / 2;
+    int y = (workspace->height() - window->height()) / 2;
+    window->move(qMax(0, x), qMax(0, y));
+    
     window->show();
 }
 
@@ -184,15 +190,27 @@ void Desktop::launchTaskManagerApp() {
     QMdiSubWindow *window = workspace->addSubWindow(app);
     window->setWindowTitle("System Task Manager");
     window->resize(450, 400);
+    
+    // --- PERFECT CENTERING LOGIC ---
+    int x = (workspace->width() - window->width()) / 2;
+    int y = (workspace->height() - window->height()) / 2;
+    window->move(qMax(0, x), qMax(0, y));
+    
     window->show();
 }
 
 void Desktop::launchFileSystemApp() {
-    FileSystemApp *app = new FileSystemApp();
+    FileSystemApp *app = new FileSystemApp(&masterFileSystem);
     app->setAttribute(Qt::WA_DeleteOnClose);
     QMdiSubWindow *window = workspace->addSubWindow(app);
     window->setWindowTitle("EduCloud File Explorer");
     window->resize(650, 450);
+    
+    // --- PERFECT CENTERING LOGIC ---
+    int x = (workspace->width() - window->width()) / 2;
+    int y = (workspace->height() - window->height()) / 2;
+    window->move(qMax(0, x), qMax(0, y));
+    
     window->show();
 }
 
@@ -202,6 +220,12 @@ void Desktop::launchCalculatorApp() {
     QMdiSubWindow *window = workspace->addSubWindow(app);
     window->setWindowTitle("Calculator");
     window->resize(250, 320);
+    
+    // --- PERFECT CENTERING LOGIC ---
+    int x = (workspace->width() - window->width()) / 2;
+    int y = (workspace->height() - window->height()) / 2;
+    window->move(qMax(0, x), qMax(0, y));
+    
     window->show();
 }
 
@@ -211,15 +235,29 @@ void Desktop::launchSnakeApp() {
     QMdiSubWindow *window = workspace->addSubWindow(app);
     window->setWindowTitle("Snake Game");
     window->resize(420, 440);
+    
+    // --- PERFECT CENTERING LOGIC ---
+    int x = (workspace->width() - window->width()) / 2;
+    int y = (workspace->height() - window->height()) / 2;
+    window->move(qMax(0, x), qMax(0, y));
+    
     window->show();
 }
 
 void Desktop::launchBrowserApp() {
+    // Instantiates our process-capturing widget
     BrowserApp *app = new BrowserApp();
     app->setAttribute(Qt::WA_DeleteOnClose);
+    
     QMdiSubWindow *window = workspace->addSubWindow(app);
-    window->setWindowTitle("EduCloud Virtual Web Browser");
-    window->resize(700, 500);
+    window->setWindowTitle("EduCloud Live Web Browser Engine");
+    window->resize(950, 600); // Give it a nice, wide layout canvas
+    
+    // Centers the sub-window perfectly inside your MDI shell layout
+    int x = (workspace->width() - window->width()) / 2;
+    int y = (workspace->height() - window->height()) / 2;
+    window->move(qMax(0, x), qMax(0, y));
+    
     window->show();
 }
 
