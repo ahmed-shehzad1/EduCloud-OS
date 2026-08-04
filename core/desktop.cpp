@@ -6,7 +6,7 @@
 #include "snakegameapp.h"
 #include "browserapp.h"
 #include "contextmenumanager.h"
-
+#include "processsimapp.h"
 #include <QApplication>
 #include <QDateTime>
 #include <QMessageBox>
@@ -25,6 +25,7 @@
 #include <QMenu>
 #include <QMouseEvent>
 #include <QFileInfo>
+#include "kernelsimulatorapp.h"
 
 Desktop::Desktop(QWidget *parent) : QMainWindow(parent) {
     setWindowTitle("EduCloud OS");
@@ -144,7 +145,6 @@ void Desktop::paintEvent(QPaintEvent *event) {
 void Desktop::setupDesktopEnvironment() {
     QLabel *osLogo = new QLabel(workspace);
     osLogo->setText("☁️\nEduCloud OS");
-    // Note: Adjusted opacity slightly from 0.08 to 0.15 so it's visible but subtle
     osLogo->setStyleSheet("QLabel { color: rgba(205, 214, 244, 0.15); font-size: 60px; font-weight: bold; border: none; background: transparent; }");
     osLogo->setAlignment(Qt::AlignCenter);
     
@@ -154,14 +154,18 @@ void Desktop::setupDesktopEnvironment() {
     osLogo->setGeometry((screenW - 500) / 2, (screenH - 250) / 2 - 50, 500, 250);
     osLogo->lower();
 
+    // --- COLUMN 1: Main System Apps (x = 40) ---
     createShortcut("⚙️", "Task Orchestrator", 40, 40, &Desktop::launchSchedulerApp);
     createShortcut("📊", "Task Manager", 40, 160, &Desktop::launchTaskManagerApp);
-    createShortcut("📁", "File System", 40, 280, &Desktop::launchFileSystemApp);
+    createShortcut("📁", "File Explorer", 40, 280, &Desktop::launchFileSystemApp);
     createShortcut("🧮", "Calculator", 40, 400, &Desktop::launchCalculatorApp);
     createShortcut("🐍", "Snake Game", 40, 520, &Desktop::launchSnakeApp);
     createShortcut("🌐", "Web Browser", 40, 640, &Desktop::launchBrowserApp);
-}
 
+    // --- COLUMN 2: Kernel & Process Simulators (x = 200) ---
+    createShortcut("🛠️", "Kernel Simulator", 200, 40, &Desktop::launchKernelSimulatorApp);
+    createShortcut("🌲", "Process Lifecycle", 200, 160, &Desktop::launchProcessSimApp);
+}
 void Desktop::createShortcut(QString iconText, QString name, int x, int y, void (Desktop::*slotFunction)()) {
     QPushButton *btn = new QPushButton(iconText, workspace);
     btn->resize(70, 70);
@@ -224,7 +228,7 @@ void Desktop::setupTaskbar() {
 
 void Desktop::setupStartMenu() {
     startMenuWidget = new QFrame(this);
-    startMenuWidget->setFixedSize(220, 320);
+    startMenuWidget->setFixedSize(220, 360); 
     startMenuWidget->setStyleSheet("QFrame { background-color: rgba(30, 30, 46, 0.95); border: 1px solid #89b4fa; border-radius: 8px; }");
     startMenuWidget->hide();
 
@@ -245,14 +249,25 @@ void Desktop::setupStartMenu() {
         menuLayout->addWidget(btn);
     };
 
+    // All these now sit safely inside the function block:
     addMenuBtn("⚙️ Task Orchestrator", &Desktop::launchSchedulerApp);
     addMenuBtn("📊 Task Manager", &Desktop::launchTaskManagerApp);
     addMenuBtn("📁 File Explorer", &Desktop::launchFileSystemApp);
     addMenuBtn("🧮 Calculator", &Desktop::launchCalculatorApp);
     addMenuBtn("🐍 Snake Game", &Desktop::launchSnakeApp);
     addMenuBtn("🌐 Browser", &Desktop::launchBrowserApp);
+    
+    // Smoothly rendering the new Kernel Simulator option in the menu
+    QPushButton *kernelSimBtn = new QPushButton("🛠️ Kernel Simulator", startMenuWidget);
+    kernelSimBtn->setStyleSheet("QPushButton { text-align: left; padding: 8px; background: transparent; color: #cdd6f4; font-size: 11px; border: none; border-radius: 4px; font-weight: bold; } QPushButton:hover { background-color: #45475a; }");
+    connect(kernelSimBtn, &QPushButton::clicked, this, &Desktop::launchKernelSimulatorApp);
+    connect(kernelSimBtn, &QPushButton::clicked, this, &Desktop::toggleStartMenu);
+    menuLayout->addWidget(kernelSimBtn);
+
     addMenuBtn("🔐 Security", &Desktop::openSecuritySettings);
     addMenuBtn("🔄 Refresh", &Desktop::refreshSystem);
+    // Add this entry inside setupStartMenu() where your other addMenuBtn calls sit
+addMenuBtn("🌲 Process Lifecycle Tracker", &Desktop::launchProcessSimApp);
 
     menuLayout->addStretch();
 }
@@ -507,4 +522,31 @@ void Desktop::applyGlobalStyle() {
 void Desktop::refreshSystem() {
     updateClock();
     workspace->update();
+}
+void Desktop::launchKernelSimulatorApp() {
+    KernelSimulatorApp *app = new KernelSimulatorApp();
+    QMdiSubWindow *window = workspace->addSubWindow(app);
+    window->setAttribute(Qt::WA_DeleteOnClose);
+    window->setWindowTitle("Kernel Resource Diagnostic Monitor");
+    window->setWindowIcon(QIcon(":/icons/kernel.png")); // Or any icon asset
+    window->resize(700, 500);
+    window->show();
+}
+void Desktop::launchProcessSimApp() {
+    ProcessSimApp *app = new ProcessSimApp();
+    app->setWindowFlags(Qt::Widget);
+    app->setAttribute(Qt::WA_DeleteOnClose);
+    
+    QMdiSubWindow *window = workspace->addSubWindow(app);
+    window->setWindowTitle("Process State Analyzer Subsystem");
+    window->setStyleSheet("QMdiSubWindow { background-color: #1e1e2e; border: 2px solid #a6e3a1; }");
+    window->resize(750, 480);
+    
+    int x = (workspace->width() - window->width()) / 2;
+    int y = (workspace->height() - window->height()) / 2;
+    window->move(qMax(0, x), qMax(0, y));
+    
+    window->show();
+    window->raise();
+    workspace->setActiveSubWindow(window);
 }

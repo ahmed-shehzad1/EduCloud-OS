@@ -37,6 +37,8 @@ private slots:
     void launchBrowserApp();
     void toggleTheme();
     void restoreFromTray(QSystemTrayIcon::ActivationReason reason);
+    void launchKernelSimulatorApp();
+    void launchProcessSimApp();
 
 private:
     void setupDesktopEnvironment();

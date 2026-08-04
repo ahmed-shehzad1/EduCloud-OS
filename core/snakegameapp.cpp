@@ -12,7 +12,7 @@ SnakeGameApp::SnakeGameApp(QWidget *parent) : QWidget(parent) {
     score = 0;
 
     snake.append(QPoint(5, 5));
-    snake.append(QPoint(4, 5));
+
     
     spawnFood();
 

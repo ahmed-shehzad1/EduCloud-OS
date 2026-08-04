@@ -41,6 +41,9 @@ add_executable(EduCloudOSCore
     contextmenumanager.cpp  
     logindialog.cpp
     logindialog.h
+    kernelsimulatorapp.cpp
+    processsimapp.h
+    processsimapp.cpp
 )
 
 # 🌐 FIXED: Linked all necessary target runtime execution pipeline libraries

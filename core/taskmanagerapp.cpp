@@ -16,7 +16,8 @@ TaskManagerApp::TaskManagerApp(QWidget *parent) : QWidget(parent) {
     cpuLayout->addWidget(cpuBar);
 
     // RAM Layout
-    QHBoxLayout *ramLayout = new QHBoxLayout();
+    QHBoxLayout *ramLayout = new 
+    QHBoxLayout();
     ramLayout->addWidget(new QLabel("RAM Load:"));
     ramBar = new QProgressBar();
     ramBar->setRange(0, 100);
