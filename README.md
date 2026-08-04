@@ -175,7 +175,7 @@ The result is closer to a **miniature educational computing environment** than a
 
 The Dashboard acts as the central entry point to EduCloud OS.
 
-![EduCloud OS Dashboard](assets/Dashboard.png)
+![Dashboard](core/assets/Dashboard.png)
 
 ---
 
@@ -183,7 +183,7 @@ The Dashboard acts as the central entry point to EduCloud OS.
 
 EduCloud OS provides a complete desktop-style environment with an application launcher, taskbar, windows, system controls, and a structured workspace.
 
-![EduCloud OS Start Menu](assets/StartMenu.png)
+![Start Menu](core/assets/StartMenu.png)
 
 ---
 
@@ -235,7 +235,8 @@ The **Task Orchestrator** is one of the primary Operating Systems components.
 
 It demonstrates CPU scheduling algorithms through an interactive environment.
 
-![Task Orchestrator](assets/Task%20Orchestrator.png)
+![Task Orchestrator](core/assets/Task%20Orchestrator.png)
+
 
 ### Supported Scheduling Concepts
 
@@ -274,7 +275,7 @@ It demonstrates CPU scheduling algorithms through an interactive environment.
 
 The Task Manager provides an interactive system monitoring interface.
 
-![Task Manager](assets/Taskmanager.png)
+![Task Manager](core/assets/Taskmanager.png)
 
 ### Features
 
@@ -294,7 +295,7 @@ The Task Manager demonstrates how operating systems maintain information about a
 
 The Kernel Resource Monitor provides a centralized view of simulated system resources.
 
-![Kernel Resource Monitor](assets/Kernal%20Resource%20monitor.png)
+![Kernel Resource Monitor](core/assets/Kernal%20Resource%20monitor.png)
 
 ### Conceptual Areas
 
@@ -312,7 +313,7 @@ This module provides an educational abstraction of the type of information that 
 
 The Process State Analyzer focuses specifically on process lifecycle and state transitions.
 
-![Process State Analyzer](assets/Process%20State%20Analyzer.png)
+![Process State Analyzer](core/assets/Process%20State%20Analyzer.png)
 
 ### Typical Process States
 
@@ -370,7 +371,7 @@ to represent virtual storage structures.
 
 EduCloud OS includes a lightweight simulated browser environment.
 
-![EduCloud OS Browser](assets/Browser.png)
+![Browser](core/assets/Browser.png)
 
 ### Features
 
@@ -391,7 +392,7 @@ The browser was intentionally designed to work without depending on a full Chrom
 
 EduCloud OS contains a dedicated security-oriented application.
 
-![EduCloud OS Security](assets/Security.png)
+![Security](core/assets/Security.png)
 
 The security module provides an educational environment for demonstrating system security concepts and security-related functionality.
 
@@ -401,7 +402,7 @@ The security module provides an educational environment for demonstrating system
 
 The integrated Calculator provides standard arithmetic functionality inside the simulated operating system.
 
-![EduCloud OS Calculator](assets/Calculator.png)
+![Calculator](core/assets/Calculator.png)
 
 It demonstrates how ordinary desktop utilities can coexist alongside system-level educational modules.
 
@@ -411,7 +412,7 @@ It demonstrates how ordinary desktop utilities can coexist alongside system-leve
 
 EduCloud OS also contains an interactive Snake Game.
 
-![EduCloud OS Snake Game](assets/Snake%20Game.png)
+![Snake Game](core/assets/Snake%20Game.png)
 
 The game provides practical examples of:
 
