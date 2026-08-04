@@ -24,9 +24,9 @@
 
 </div>
 
+---
 
-
-# 📖 Table of Contents
+## 📖 Table of Contents
 
 - [About EduCloud OS](#-about-educloud-os)
 - [Project Motivation](#-project-motivation)
@@ -34,7 +34,7 @@
 - [What Makes EduCloud OS Different?](#-what-makes-educloud-os-different)
 - [Application Showcase](#-application-showcase)
 - [Core Features](#-core-features)
-- [Operating Systems Concepts](#-operating-systems-concepts-demonstrated)
+- [Operating Systems Concepts Demonstrated](#-operating-systems-concepts-demonstrated)
 - [System Architecture](#-system-architecture)
 - [Project Architecture](#-project-architecture)
 - [Project Structure](#-project-structure)
@@ -51,7 +51,7 @@
 - [Academic Context](#-academic-context)
 - [License](#-license)
 
-
+---
 
 # ☁️ About EduCloud OS
 
@@ -63,7 +63,7 @@ Instead of studying concepts such as CPU scheduling, process states, resource al
 
 > **EduCloud OS is not intended to replace or emulate a production operating system kernel. It is an educational simulation environment designed to demonstrate and visualize Operating Systems concepts.**
 
-
+---
 
 # 🎯 Project Motivation
 
@@ -87,6 +87,7 @@ EduCloud OS addresses this problem by providing a **visual and interactive learn
 
 The overall idea is:
 
+```text
                 THEORY
                   │
                   ▼
@@ -106,46 +107,41 @@ The overall idea is:
                   │
                   ▼
            BETTER UNDERSTANDING
-🚀 Project Goals
+```
+
+---
+
+# 🚀 Project Goals
 
 EduCloud OS was developed with several major objectives.
 
-🎓 Educational
-
+### 🎓 Educational
 Turn abstract OS concepts into visual, interactive demonstrations.
 
-🧠 Conceptual
-
+### 🧠 Conceptual
 Allow students to understand how processes, tasks, scheduling, resources, and system applications interact.
 
-🖥️ Practical
-
+### 🖥️ Practical
 Provide a desktop environment containing multiple applications instead of isolated demonstrations.
 
-🧩 Modular
-
+### 🧩 Modular
 Keep applications separated into independent modules so the system can be expanded easily.
 
-🔍 Observable
-
+### 🔍 Observable
 Make internal system behavior visible through dashboards, monitors, task managers, and analyzers.
 
-🛠️ Extensible
-
+### 🛠️ Extensible
 Provide a foundation that can be extended with additional Operating Systems simulations and educational modules.
 
-⭐ What Makes EduCloud OS Different?
+---
 
-A conventional OS project might implement a single concept such as:
+# ⭐ What Makes EduCloud OS Different?
 
-FCFS Scheduling
-
-or:
-
-Process Management
+A conventional OS project might implement a single concept such as CPU scheduling or process management.
 
 EduCloud OS instead combines multiple concepts into one environment:
 
+```text
                     ☁️ EDUCloud OS
                           │
         ┌─────────────────┼─────────────────┐
@@ -167,40 +163,54 @@ EduCloud OS instead combines multiple concepts into one environment:
         │                 │                 │
         ▼                 ▼                 ▼
     Virtual FS       System Tools       Games
+```
 
-The result is closer to a miniature educational computing environment than a single-feature simulator.
+The result is closer to a **miniature educational computing environment** than a single-feature simulator.
 
-🖥️ Application Showcase
-🏠 Main Dashboard
+---
+
+# 🖥️ Application Showcase
+
+## 🏠 Main Dashboard
 
 The Dashboard acts as the central entry point to EduCloud OS.
 
-🖥️ Desktop Environment
+![EduCloud OS Dashboard](assets/Dashboard.png)
+
+---
+
+## 🖥️ Desktop Environment
 
 EduCloud OS provides a complete desktop-style environment with an application launcher, taskbar, windows, system controls, and a structured workspace.
 
-⚙️ Core Features
-1. 🖥️ Desktop Shell & User Environment
+![EduCloud OS Start Menu](assets/StartMenu.png)
+
+---
+
+# ⚙️ Core Features
+
+## 1. 🖥️ Desktop Shell & User Environment
 
 The desktop shell provides the foundation of the EduCloud OS experience.
 
-Key Features
-Multi-window desktop environment
-Multiple application instances
-Application launcher
-Persistent taskbar
-System clock
-Context menu
-Window management
-Dark modern interface
-Central workspace
-Application lifecycle management
-MDI Window Architecture
+### Key Features
 
-The application uses Qt's QMdiArea architecture to support multiple child applications inside the main desktop.
+- Multi-window desktop environment
+- Multiple application instances
+- Application launcher
+- Persistent taskbar
+- System clock
+- Context menu
+- Window management
+- Dark modern interface
+- Central workspace
+- Application lifecycle management
 
-Conceptually:
+### MDI Window Architecture
 
+The application uses Qt's `QMdiArea` architecture to support multiple child applications inside the main desktop.
+
+```text
 ┌─────────────────────────────────────────────────┐
 │                 EDUCloud OS                     │
 ├─────────────────────────────────────────────────┤
@@ -215,24 +225,31 @@ Conceptually:
 │                                                 │
 │                 Desktop Workspace               │
 └─────────────────────────────────────────────────┘
-2. ⚙️ Task Orchestrator — CPU Scheduling
+```
 
-The Task Orchestrator is one of the primary Operating Systems components.
+---
+
+## 2. ⚙️ Task Orchestrator — CPU Scheduling
+
+The **Task Orchestrator** is one of the primary Operating Systems components.
 
 It demonstrates CPU scheduling algorithms through an interactive environment.
 
-Supported Scheduling Concepts
+![Task Orchestrator](assets/Task%20Orchestrator.png)
 
-The scheduler can model:
+### Supported Scheduling Concepts
 
-First Come First Serve (FCFS)
-Shortest Job First (SJF)
-Priority Scheduling
-Task arrival order
-Burst time
-Execution priority
-Process state progression
-Task Lifecycle
+- First Come First Serve (FCFS)
+- Shortest Job First (SJF)
+- Priority Scheduling
+- Task arrival order
+- Burst time
+- Execution priority
+- Process state progression
+
+### Task Lifecycle
+
+```text
                  CREATE
                     │
                     ▼
@@ -249,47 +266,57 @@ Task Lifecycle
           BLOCKED       TERMINATED
              │
              └──────► READY
+```
 
-The application makes these transitions easier to understand visually.
+---
 
-3. 📊 Task Manager — Process Monitoring
+## 3. 📊 Task Manager — Process Monitoring
 
 The Task Manager provides an interactive system monitoring interface.
 
-It provides visibility into application and process activity.
+![Task Manager](assets/Taskmanager.png)
 
-Features
-Running application tracking
-Task/process identification
-Resource information
-Process lifecycle monitoring
-Application termination
-Window lifecycle management
-Runtime diagnostics
+### Features
+
+- Running application tracking
+- Task/process identification
+- Resource information
+- Process lifecycle monitoring
+- Application termination
+- Window lifecycle management
+- Runtime diagnostics
 
 The Task Manager demonstrates how operating systems maintain information about active workloads.
 
-4. 🧠 Kernel Resource Monitor
+---
+
+## 4. 🧠 Kernel Resource Monitor
 
 The Kernel Resource Monitor provides a centralized view of simulated system resources.
 
-Conceptual Areas
+![Kernel Resource Monitor](assets/Kernal%20Resource%20monitor.png)
 
-The monitor provides insight into:
+### Conceptual Areas
 
-Resource utilization
-Running workloads
-System activity
-Resource allocation
-Runtime state
+- Resource utilization
+- Running workloads
+- System activity
+- Resource allocation
+- Runtime state
 
 This module provides an educational abstraction of the type of information that a real operating system exposes to system monitoring utilities.
 
-5. 🔄 Process State Analyzer
+---
+
+## 5. 🔄 Process State Analyzer
 
 The Process State Analyzer focuses specifically on process lifecycle and state transitions.
 
-Typical Process States
+![Process State Analyzer](assets/Process%20State%20Analyzer.png)
+
+### Typical Process States
+
+```text
              ┌─────────┐
              │  NEW    │
              └────┬────┘
@@ -309,99 +336,121 @@ Typical Process States
       WAITING  READY   TERMINATED
           │
           └──────────────► READY
+```
 
-The analyzer makes process lifecycle behavior easier to visualize and explain.
+---
 
-6. 📁 Virtual File System
+## 6. 📁 Virtual File System
 
 EduCloud OS includes a sandboxed virtual file management environment.
 
 The system models storage without directly exposing the simulated file system to destructive modifications of the host environment.
 
-Features
-File creation
-File saving
-File opening
-File reading
-Virtual directories
-File indexing
-In-memory data management
+### Features
+
+- File creation
+- File saving
+- File opening
+- File reading
+- Virtual directories
+- File indexing
+- In-memory data management
 
 The implementation uses Qt containers such as:
 
+```cpp
 QMap<QString, QString>
+```
 
 to represent virtual storage structures.
 
-7. 🌐 Virtual Browser
+---
+
+## 7. 🌐 Virtual Browser
 
 EduCloud OS includes a lightweight simulated browser environment.
 
-Features
-Address bar
-Navigation controls
-Back / Forward behavior
-Homepage
-Dynamic HTML generation
-Search simulation
-Query processing
-Page rendering
+![EduCloud OS Browser](assets/Browser.png)
+
+### Features
+
+- Address bar
+- Navigation controls
+- Back / Forward behavior
+- Homepage
+- Dynamic HTML generation
+- Search simulation
+- Query processing
+- Page rendering
 
 The browser was intentionally designed to work without depending on a full Chromium-based browser stack.
 
-8. 🔐 Security Center
+---
+
+## 8. 🔐 Security Center
 
 EduCloud OS contains a dedicated security-oriented application.
 
+![EduCloud OS Security](assets/Security.png)
+
 The security module provides an educational environment for demonstrating system security concepts and security-related functionality.
 
-This area can be expanded in future versions with additional security laboratories.
+---
 
-9. 🧮 Calculator
+## 9. 🧮 Calculator
 
 The integrated Calculator provides standard arithmetic functionality inside the simulated operating system.
 
+![EduCloud OS Calculator](assets/Calculator.png)
+
 It demonstrates how ordinary desktop utilities can coexist alongside system-level educational modules.
 
-10. 🐍 Snake Game
+---
+
+## 10. 🐍 Snake Game
 
 EduCloud OS also contains an interactive Snake Game.
 
-Although primarily included as a desktop utility/application demonstration, the game provides a practical example of:
+![EduCloud OS Snake Game](assets/Snake%20Game.png)
 
-Keyboard event handling
-Timer-driven updates
-Collision detection
-Grid-based movement
-Application state
-Event-driven programming
+The game provides practical examples of:
 
-The game uses Qt event handling and timer mechanisms to maintain the gameplay loop.
+- Keyboard event handling
+- Timer-driven updates
+- Collision detection
+- Grid-based movement
+- Application state
+- Event-driven programming
 
-🧠 Operating Systems Concepts Demonstrated
+---
 
-EduCloud OS brings multiple Operating Systems topics together in one environment.
+# 🧠 Operating Systems Concepts Demonstrated
 
-Concept	Demonstrated Through
-Process Management	Task Manager, Process State Analyzer
-Process States	Process State Analyzer
-CPU Scheduling	Task Orchestrator
-FCFS	Task Orchestrator
-SJF	Task Orchestrator
-Priority Scheduling	Task Orchestrator
-Resource Management	Kernel Resource Monitor
-Task Management	Task Manager
-Virtual File Systems	File Explorer
-System Monitoring	Dashboard / Kernel Monitor
-Application Lifecycle	Desktop Shell
-Event-driven Programming	Qt applications
-Memory/Data Structures	Virtual FS and application state
-Security Concepts	Security Center
-GUI Architecture	Qt Desktop Shell
-🏗️ System Architecture
+| Concept | Demonstrated Through |
+|---|---|
+| Process Management | Task Manager, Process State Analyzer |
+| Process States | Process State Analyzer |
+| CPU Scheduling | Task Orchestrator |
+| FCFS | Task Orchestrator |
+| SJF | Task Orchestrator |
+| Priority Scheduling | Task Orchestrator |
+| Resource Management | Kernel Resource Monitor |
+| Task Management | Task Manager |
+| Virtual File Systems | File Explorer |
+| System Monitoring | Dashboard / Kernel Monitor |
+| Application Lifecycle | Desktop Shell |
+| Event-driven Programming | Qt applications |
+| Memory/Data Structures | Virtual FS and application state |
+| Security Concepts | Security Center |
+| GUI Architecture | Qt Desktop Shell |
+
+---
+
+# 🏗️ System Architecture
 
 EduCloud OS follows a modular architecture.
 
+```text
 ┌──────────────────────────────────────────────────────┐
 │                    EDUCloud OS                       │
 ├──────────────────────────────────────────────────────┤
@@ -431,42 +480,41 @@ EduCloud OS follows a modular architecture.
 ├──────────────────────────────────────────────────────┤
 │              Host Operating System                   │
 └──────────────────────────────────────────────────────┘
-🧩 Project Architecture
+```
 
-The project follows a modular application architecture.
+---
+
+# 🧩 Project Architecture
 
 Each major feature is separated into its own application/module.
 
-For example:
-
+```text
 Desktop
    │
    ├── TaskManagerApp
-   │
    ├── TaskOrchestrator
-   │
    ├── KernelResourceMonitor
-   │
    ├── ProcessStateAnalyzer
-   │
    ├── Browser
-   │
    ├── Security
-   │
    ├── Calculator
-   │
    └── SnakeGame
+```
 
 This architecture allows individual components to be:
 
-Modified independently
-Debugged independently
-Extended independently
-Reused for future educational modules
-📁 Project Structure
+- Modified independently
+- Debugged independently
+- Extended independently
+- Reused for future educational modules
+
+---
+
+# 📁 Project Structure
 
 A simplified structure is:
 
+```text
 EduCloudOS/
 │
 ├── assets/
@@ -489,73 +537,110 @@ EduCloudOS/
 │   └── CMakeLists.txt
 │
 ├── CMakeLists.txt
-│
 └── README.md
-🛠️ Technology Stack
-Technology	Purpose
-C++17	Core application development
-Qt 6	GUI framework and desktop environment
-CMake	Build configuration and project management
-MinGW / GCC	Compilation
-Qt Widgets	Desktop and application interfaces
-Qt Events	Input and application interaction
-Qt Timers	Periodic and real-time operations
-Qt Containers	Internal data structures
-Git	Version control
-💻 Supported Platforms
+```
 
-The architecture is designed with cross-platform Qt compatibility in mind.
+---
 
-Primary Development Environment
-Windows
-Target Platforms
-Windows
-Linux
-macOS
+# 🛠️ Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| **C++17** | Core application development |
+| **Qt 6** | GUI framework and desktop environment |
+| **CMake** | Build configuration and project management |
+| **MinGW / GCC** | Compilation |
+| **Qt Widgets** | Desktop and application interfaces |
+| **Qt Events** | Input and application interaction |
+| **Qt Timers** | Periodic and real-time operations |
+| **Qt Containers** | Internal data structures |
+| **Git** | Version control |
+
+---
+
+# 💻 Supported Platforms
+
+### Primary Development Environment
+
+- Windows
+
+### Target Platforms
+
+- Windows
+- Linux
+- macOS
 
 Platform-specific deployment may require the appropriate Qt runtime libraries and build configuration.
 
-🔨 Build Requirements
+---
+
+# 🔨 Build Requirements
 
 To build EduCloud OS from source, install:
 
-Qt 6.x
-Qt Creator
-CMake 3.16+
-MinGW / GCC or another supported C++17 compiler
-Minimum C++ Standard
+- Qt 6.x
+- Qt Creator
+- CMake 3.16+
+- MinGW / GCC or another supported C++17 compiler
+
+### Minimum C++ Standard
+
+```text
 C++17
-Build System
+```
+
+### Build System
+
+```text
 CMake
-▶️ Build & Run
-1. Clone the Repository
+```
+
+---
+
+# ▶️ Build & Run
+
+## 1. Clone the Repository
+
+```bash
 git clone <repository-url>
-2. Open the Project
+cd EduCloudOS
+```
+
+## 2. Open the Project
 
 Open the project using Qt Creator.
 
-3. Configure the Kit
+## 3. Configure the Kit
 
 Select an appropriate Qt kit such as:
 
+```text
 Desktop Qt 6.x MinGW 64-bit
-4. Configure CMake
+```
+
+## 4. Configure CMake
 
 Allow Qt Creator to configure the CMake project.
 
-5. Build
+## 5. Build
 
 Build the project using:
 
+```text
 Build → Build Project
-6. Run
+```
+
+## 6. Run
 
 Launch the application from Qt Creator.
 
-🔄 How the System Works
+---
+
+# 🔄 How the System Works
 
 At a high level, the application follows this lifecycle:
 
+```text
                    Application Start
                           │
                           ▼
@@ -580,21 +665,23 @@ At a high level, the application follows this lifecycle:
                           │
                           ▼
                   Application Updates
+```
 
 Qt's event-driven architecture manages user input, timers, window operations, and application interactions.
 
-🎓 Educational Value
+---
+
+# 🎓 Educational Value
 
 One of the primary goals of EduCloud OS is to make the project useful beyond a single semester.
 
 The application can serve as a practical teaching tool for future Operating Systems students.
 
-For example:
-
-CPU Scheduling Laboratory
+### CPU Scheduling Laboratory
 
 A teacher can demonstrate:
 
+```text
 FCFS
  ↓
 SJF
@@ -602,10 +689,13 @@ SJF
 Priority Scheduling
  ↓
 Compare Results
-Process Management
+```
+
+### Process Management
 
 Students can observe:
 
+```text
 NEW
  ↓
 READY
@@ -617,155 +707,204 @@ WAITING
 READY
  ↓
 TERMINATED
-Resource Monitoring
+```
+
+### Resource Monitoring
 
 Students can observe how tasks and applications can be represented through resource-monitoring interfaces.
 
-Virtual File Systems
+### Virtual File Systems
 
 Students can explore how file systems can be represented using data structures and application-level abstractions.
 
-🔬 Testing
+---
+
+# 🔬 Testing
 
 EduCloud OS was tested through functional interaction with its individual applications and desktop environment.
 
 Testing areas include:
 
-Application launching
-Window management
-Task creation
-Scheduling behavior
-Process state transitions
-Virtual file operations
-Browser navigation
-Security module functionality
-Calculator operations
-Snake Game controls
-Application closing
-Desktop interaction
-UI responsiveness
-🚀 Future Development
+- Application launching
+- Window management
+- Task creation
+- Scheduling behavior
+- Process state transitions
+- Virtual file operations
+- Browser navigation
+- Security module functionality
+- Calculator operations
+- Snake Game controls
+- Application closing
+- Desktop interaction
+- UI responsiveness
+
+---
+
+# 🚀 Future Development
 
 EduCloud OS provides a foundation for additional Operating Systems laboratories.
 
 Potential future additions include:
 
-Round Robin scheduling visualization
-Multilevel Queue Scheduling
-Multilevel Feedback Queue
-Memory allocation simulator
-Paging simulator
-Page replacement algorithms
-Virtual memory laboratory
-Deadlock detection
-Banker's Algorithm visualization
-Mutex demonstrations
-Semaphore demonstrations
-Thread synchronization laboratory
-IPC demonstrations
-File allocation algorithms
-Disk scheduling algorithms
-Disk management simulator
-Cache simulation
-More security laboratories
-Networking simulations
-Educational quizzes
-Instructor mode
-Student experiment mode
-Built-in OS theory documentation
-🧑‍🏫 Teaching Applications
+- Round Robin scheduling visualization
+- Multilevel Queue Scheduling
+- Multilevel Feedback Queue
+- Memory allocation simulator
+- Paging simulator
+- Page replacement algorithms
+- Virtual memory laboratory
+- Deadlock detection
+- Banker's Algorithm visualization
+- Mutex demonstrations
+- Semaphore demonstrations
+- Thread synchronization laboratory
+- IPC demonstrations
+- File allocation algorithms
+- Disk scheduling algorithms
+- Disk management simulator
+- Cache simulation
+- More security laboratories
+- Networking simulations
+- Educational quizzes
+- Instructor mode
+- Student experiment mode
+- Built-in OS theory documentation
+
+---
+
+# 🧑‍🏫 Teaching Applications
 
 A major long-term objective of EduCloud OS is to allow instructors to use the project as a practical teaching environment.
 
 Instead of explaining:
 
-"This is how FCFS works."
+> "This is how FCFS works."
 
 An instructor can demonstrate it directly.
 
 Instead of explaining:
 
-"A process can move between READY and RUNNING states."
+> "A process can move between READY and RUNNING states."
 
 Students can observe the state model.
 
 Instead of only drawing:
 
+```text
 Process → Scheduler → CPU
+```
 
 students can interact with a visual representation.
 
 This is the core philosophy behind EduCloud OS:
 
-Don't just study the concept. Interact with it.
+> **Don't just study the concept. Interact with it.**
 
-📸 Complete Interface Gallery
+---
+
+# 📸 Complete Interface Gallery
 
 The following screenshots demonstrate the major components of the finished environment.
 
-Dashboard
+## Dashboard
 
-Start Menu
+![Dashboard](assets/Dashboard.png)
 
-Task Orchestrator
+## Start Menu
 
-Task Manager
+![Start Menu](assets/StartMenu.png)
 
-Kernel Resource Monitor
+## Task Orchestrator
 
-Process State Analyzer
+![Task Orchestrator](assets/Task%20Orchestrator.png)
 
-Virtual Browser
+## Task Manager
 
-Security Center
+![Task Manager](assets/Taskmanager.png)
 
-Calculator
+## Kernel Resource Monitor
 
-Snake Game
+![Kernel Resource Monitor](assets/Kernal%20Resource%20monitor.png)
 
-🔐 Project Scope
+## Process State Analyzer
 
-EduCloud OS is a simulation and educational environment, not a replacement for Windows, Linux, or another production operating system.
+![Process State Analyzer](assets/Process%20State%20Analyzer.png)
+
+## Virtual Browser
+
+![Browser](assets/Browser.png)
+
+## Security Center
+
+![Security](assets/Security.png)
+
+## Calculator
+
+![Calculator](assets/Calculator.png)
+
+## Snake Game
+
+![Snake Game](assets/Snake%20Game.png)
+
+---
+
+# 🔐 Project Scope
+
+EduCloud OS is a **simulation and educational environment**, not a replacement for Windows, Linux, or another production operating system.
 
 The project operates as a desktop application running on top of the host operating system.
 
 Its purpose is to provide:
 
-Concept visualization
-OS education
-Interactive simulations
-Desktop application architecture
-Practical programming experience
-👥 Team
+- Concept visualization
+- OS education
+- Interactive simulations
+- Desktop application architecture
+- Practical programming experience
+
+---
+
+# 👥 Team
 
 EduCloud OS was developed as a group academic project for an Operating Systems course.
 
 Individual responsibilities and contributions can be documented separately according to team member involvement.
 
-📚 Academic Context
+---
 
-Project Name: EduCloud OS
-Project Type: Operating Systems Semester Project
-Programming Language: C++17
-GUI Framework: Qt 6
-Build System: CMake
-Primary Platform: Windows
-Target Platforms: Windows / Linux / macOS
+# 📚 Academic Context
 
-📄 License
+| Field | Details |
+|---|---|
+| Project Name | EduCloud OS |
+| Project Type | Operating Systems Semester Project |
+| Programming Language | C++17 |
+| GUI Framework | Qt 6 |
+| Build System | CMake |
+| Primary Platform | Windows |
+| Target Platforms | Windows / Linux / macOS |
 
-This project is released under the MIT License.
+---
 
-See the LICENSE file for more information.
+# 📄 License
+
+This project is released under the **MIT License**.
+
+See the `LICENSE` file for more information.
+
+---
 
 <div align="center">
-☁️ EduCloud OS
-Learn. Simulate. Interact. Understand.
 
-An interactive approach to Operating Systems education.
+# ☁️ EduCloud OS
+
+### Learn. Simulate. Interact. Understand.
+
+**An interactive approach to Operating Systems education.**
 
 <br>
 
 Made with ❤️ using C++17, Qt & CMake.
 
-</div> ```
+</div>
